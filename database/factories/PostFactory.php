@@ -16,8 +16,14 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
+        $title = fake()->sentence(); 
+
         return [
-            //
+            'title' => $title,
+            'slug' => $title,
+            'content' => fake()->paragraph,
+            'user_id' => rand(1, 2),
+            'is_published' => true,
         ];
     }
 }

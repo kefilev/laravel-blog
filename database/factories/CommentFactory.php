@@ -17,7 +17,11 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => rand(1, 2),
+            'post_id' => rand(1, 20),
+            'parent_id' => null,
+            'body' => fake()->sentence(),
+            'is_approved' => true
         ];
     }
 }
