@@ -1,11 +1,16 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
 })->name('home');
+
+Route::redirect('/blog', '/blog/page/1');
+
+Route::get('/blog/page/{page?}', [BlogController::class, 'index'])->name('blog.index');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
