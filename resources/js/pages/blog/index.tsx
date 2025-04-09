@@ -20,11 +20,10 @@ type PostsObj = {
 }
 
 type BlogProps = {
-  page: string,
   posts: PostsObj
 };
 
-const BlogIndex = ({ page, posts }: BlogProps) => {
+const BlogIndex = ({ posts }: BlogProps) => {
   console.log(posts);
 
   return (
