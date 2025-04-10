@@ -37,7 +37,7 @@ class PostController extends Controller
      */
     public function show(string $slug)
     {
-        $post = Post::withCount('comments') // optionally eager-load comments
+        $post = Post::with('comments.user')
                 ->where('slug', $slug)
                 ->where('is_published', true)
                 ->firstOrFail();
