@@ -16,7 +16,7 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
-        $title = fake()->sentence(); 
+        $title = rtrim(fake()->sentence(), '.'); // Remove the trailing dot if it exists
 
         return [
             'title' => $title,

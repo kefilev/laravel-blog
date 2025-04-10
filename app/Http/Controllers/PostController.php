@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PostController extends Controller
 {
@@ -34,9 +35,16 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(string $slug)
     {
-        //
+        $post = Post::withCount('comments') // optionally eager-load comments
+                ->where('slug', $slug)
+                ->where('is_published', true)
+                ->firstOrFail();
+
+        return Inertia::render('blog/show', [
+            'post' => $post,
+        ]);
     }
 
     /**

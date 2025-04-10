@@ -1,6 +1,11 @@
 import { Link } from '@inertiajs/react';
+import { PaginationLink } from '@/types/blog';
 
-export default function Pagination({ links }: { links: { url: string | null; label: string; active: boolean }[] }) {
+type PaginationProps = {
+    links: PaginationLink[];
+};
+
+export default function Pagination({ links }: PaginationProps) {
     const appUrl = process.env.APP_URL || 'http://localhost';  // Fallback to localhost if undefined
 
     console.log(process.env.APP_URL);
@@ -20,10 +25,10 @@ export default function Pagination({ links }: { links: { url: string | null; lab
                         key={index}
                         href={newUrl || ''}
                         className={`px-4 py-2 border rounded-md text-sm transition ${isDisabled
-                                ? 'text-gray-400 border-gray-200 cursor-not-allowed'
-                                : isActive
-                                    ? 'bg-blue-600 text-white border-blue-600'
-                                    : 'text-gray-700 border-gray-300 hover:bg-gray-100'
+                            ? 'text-gray-400 border-gray-200 cursor-not-allowed'
+                            : isActive
+                                ? 'bg-blue-600 text-white border-blue-600'
+                                : 'text-gray-700 border-gray-300 hover:bg-gray-100'
                             }`}
                         disabled={isDisabled}
                     >

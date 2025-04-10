@@ -1,27 +1,7 @@
 import React from 'react';
 import { Link } from '@inertiajs/react';
 import Pagination from '@/components/pagination';
-
-type Post = {
-  id: number,
-  title: string,
-  content: string
-};
-
-type Link = {
-  url: string | null,
-  label: string,
-  active: boolean
-}
-
-type PostsObj = {
-  data: Array<Post>
-  links: Array<Link>
-}
-
-type BlogProps = {
-  posts: PostsObj
-};
+import { BlogProps } from '@/types/blog';
 
 const BlogIndex = ({ posts }: BlogProps) => {
   console.log(posts);
@@ -36,10 +16,11 @@ const BlogIndex = ({ posts }: BlogProps) => {
             key={post.id}
             className="bg-white rounded-2xl shadow p-6 border border-gray-200"
           >
-            <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+            <Link href={`/blog/${post.slug}`} className="text-xl font-semibold text-blue-600 hover:underline">
               {post.title}
-            </h2>
+            </Link>
             <p className="text-gray-600 leading-relaxed">{post.content}</p>
+            <p className="mt-2 text-sm text-gray-500">Comments: {post.comments_count}</p>
           </div>
         ))}
       </div>

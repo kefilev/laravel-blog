@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -11,6 +12,8 @@ Route::get('/', function () {
 Route::redirect('/blog', '/blog/page/1');
 
 Route::get('/blog/page/{page?}', [BlogController::class, 'index'])->name('blog.index');
+
+Route::get('/blog/{slug}', [PostController::class, 'show'])->name('blog.show');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
