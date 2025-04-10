@@ -66,4 +66,9 @@ class Post extends Model
         //     }
         // });
     }
+
+    public function getTitleAttribute($value)
+    {
+        return Str::apa($value); //Title Sase for Blog Titles
+    }
 }
