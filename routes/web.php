@@ -19,6 +19,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
         return Inertia::render('dashboard');
     })->name('dashboard');
+
+    Route::post('/blog/{slug}/comments', [\App\Http\Controllers\CommentController::class, 'store']);
 });
 
 require __DIR__.'/settings.php';

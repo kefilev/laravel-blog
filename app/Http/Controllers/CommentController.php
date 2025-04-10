@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -26,10 +27,23 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $slug)
     {
-        //
+        $request->validate([
+            'body' => 'required|string|max:1000',
+        ]);
+    
+        $post = Post::where('slug', $slug)->firstOrFail();
+    
+        $post->comments()->create([
+            'user_id' => auth()->id(), // or null if guests are allowed
+            'body' => $request->body,
+            'is_approved' => true, // or false if moderation is required
+        ]);
+    
+        return back();
     }
+    
 
     /**
      * Display the specified resource.
