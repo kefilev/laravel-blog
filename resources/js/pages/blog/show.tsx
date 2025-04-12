@@ -1,6 +1,7 @@
 import React from 'react';
-import { useForm, usePage } from '@inertiajs/react';
+import { useForm, usePage, Link } from '@inertiajs/react';
 import { PostProps } from '@/types/blog';
+import HeaderMenu from '@/components/header-menu';
 
 const Show = ({ post }: PostProps) => {
     const { props } = usePage();
@@ -21,13 +22,16 @@ const Show = ({ post }: PostProps) => {
 
     return (
         <div className="max-w-3xl mx-auto px-4 py-10">
+
+            <HeaderMenu />
+
             <h1 className="text-3xl font-bold mb-1">{post.title}</h1>
             <p className="mt-1 mb-9 text-sm text-gray-400">
-              Posted on {new Date(post.created_at).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}
+                Posted on {new Date(post.created_at).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                })}
             </p>
             <p className="text-gray-300 mb-5">{post.content}</p>
 

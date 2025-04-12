@@ -9,7 +9,7 @@ Route::get('/', function () {
     return Inertia::render('welcome');
 })->name('home');
 
-Route::redirect('/blog', '/blog/page/1');
+Route::redirect('/blog', '/blog/page/1')->name('blog');;
 
 Route::get('/blog/page/{page?}', [BlogController::class, 'index'])->name('blog.index');
 
