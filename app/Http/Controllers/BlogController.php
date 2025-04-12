@@ -13,11 +13,10 @@ class BlogController extends Controller
      */
     public function index(Request $request, $page = 1)
     {
-        $perPage = 5; // Number of posts per page
+        $perPage = config('blog.posts_per_page'); // Number of posts per page
         $posts = Post::withCount('comments')
             ->latest()
             ->paginate($perPage, ['*'], 'page', $page);
-        // $posts->withPath('/blog/page');
 
         return Inertia::render('blog/index', [
             'posts' => $posts

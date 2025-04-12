@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'posts_per_page' => 5,
+
     'post' => [
         'max_auto_excerpt_length' => 100
     ],
