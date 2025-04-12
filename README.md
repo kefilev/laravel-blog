@@ -2,7 +2,9 @@
 
 This is a simple Blog built with Laravel 12 that lets users see the blog page with pagination and read single blog posts. Logged in users will be able to comment on the blog posts.
 
-The app uses the default Laravel 12 React (with Inertia) starting pack for user authentication. This pack also includes GitHub CI workflows for tests and linter.
+The app uses the default Laravel 12 + React 19/TypeScript/Tailwind (with Inertia) starting pack for user authentication. This pack also includes GitHub CI workflows for tests and linter. 
+
+More info about the starter pack - https://laravel.com/docs/12.x/starter-kits#react
 
 ## Requirements
 
@@ -14,9 +16,9 @@ If you are not using Docker you will need a Web `server` like Apache, nginx or X
 
 This app is using this famous package for Docker setup. To understand more read their docs:
 
-https://github.com/dockersamples/laravel-docker-examples/tree/main
-
 https://docs.docker.com/guides/frameworks/laravel/development-setup/
+
+https://github.com/dockersamples/laravel-docker-examples
 
 The original package is slightly changed for the purposes of this App.
 
@@ -44,9 +46,7 @@ Create a .env file from the .env.example
 
 App configuration is done in config/blog.php
 
-Execute these commands from inside the workspace container if using Docker:
-
-`php artisan key:generate` to generate encryption key for Laravel
+Execute these commands (from inside the workspace container if using Docker):
 
 `php artisan migrate` to create the database
 
