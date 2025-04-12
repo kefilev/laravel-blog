@@ -21,7 +21,7 @@ class PostFactory extends Factory
         return [
             'title' => $title,
             'slug' => $title,
-            'content' => fake()->paragraph,
+            'content' => fake()->realText(1000),
             'user_id' => rand(1, 2),
             'is_published' => true,
         ];

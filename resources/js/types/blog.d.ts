@@ -16,6 +16,7 @@ export type Post = {
     id: number,
     slug: string,
     title: string,
+    excerpt: string,
     content: string,
     comments_count: string,
     comments: Array<Comment>

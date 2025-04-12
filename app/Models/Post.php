@@ -13,6 +13,7 @@ class Post extends Model
 
     protected $fillable = [
         'title',
+        'excerpt',
         'content',
         'slug',
         'user_id',
@@ -57,6 +58,12 @@ class Post extends Model
             if (!$post->slug) {
                 // Generate the slug from the title and convert to snake_case
                 $post->slug = Str::kebab($post->title);
+            }
+
+            // Generate excerpt if none is provided
+            if (empty($post->excerpt) && !empty($post->content)) {
+                preg_match('/^.*?[.?!](\s|$)/', $post->content, $matches);
+                $post->excerpt = $matches[0] ?? Str::limit($post->content, 100);
             }
         });
 

@@ -26,7 +26,7 @@ const BlogIndex = ({ posts }: BlogProps) => {
                 day: 'numeric',
               })}
             </p>
-            <p className="text-gray-900 leading-relaxed">{post.content}</p>
+            <p className="text-gray-900 leading-relaxed">{post.excerpt}</p>
             <p className="mt-4 text-sm text-gray-500">Comments: {post.comments_count}</p>
           </div>
         ))}
