@@ -17,17 +17,18 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
 
-        User::factory()->create([
-            'name' => 'Test User 2',
-            'email' => 'test2@example.com',
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Test User 2',
+        //     'email' => 'test2@example.com',
+        // ]);
 
-        Post::factory()->count(50)->create();
-        Comment::factory()->count(100)->create();
+        User::factory()->count(config('blog.seeder.users_count'))->create();
+        Post::factory()->count(config('blog.seeder.posts_count'))->create();
+        Comment::factory()->count(config('blog.seeder.comments_count'))->create();
     }
 }

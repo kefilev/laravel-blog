@@ -21,8 +21,8 @@ class PostFactory extends Factory
         return [
             'title' => $title,
             'slug' => $title,
-            'content' => fake()->realText(1000),
-            'user_id' => rand(1, 2),
+            'content' => fake()->realText(config('blog.seeder.post_content_length')),
+            'user_id' => rand(1, config('blog.seeder.users_count')),
             'is_published' => true,
         ];
     }

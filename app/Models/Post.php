@@ -63,7 +63,7 @@ class Post extends Model
             // Generate excerpt if none is provided
             if (empty($post->excerpt) && !empty($post->content)) {
                 preg_match('/^.*?[.?!](\s|$)/', $post->content, $matches);
-                $post->excerpt = $matches[0] ?? Str::limit($post->content, 100);
+                $post->excerpt = $matches[0] ?? Str::limit($post->content, config('blog.post.max_auto_excerpt_length'));
             }
         });
 
