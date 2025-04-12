@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm, usePage, Link } from '@inertiajs/react';
+import { useForm, usePage } from '@inertiajs/react';
 import { PostProps } from '@/types/blog';
 import HeaderMenu from '@/components/header-menu';
 

@@ -1,22 +1,10 @@
-import { Head, Link, usePage } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
 import Pagination from '@/components/pagination';
 import { BlogProps } from '@/types/blog';
-import { type SharedData } from '@/types';
 import HeaderMenu from '@/components/header-menu';
-import AppLayout from '@/layouts/app-layout';
-import { type BreadcrumbItem } from '@/types';
 
 const BlogIndex = ({ posts }: BlogProps) => {
   console.log(posts);
-
-  const { auth } = usePage<SharedData>().props;
-
-  const breadcrumbs: BreadcrumbItem[] = [
-    {
-      title: 'Dashboard',
-      href: '/dashboard',
-    },
-  ];
 
   return (
           <div className="max-w-3xl mx-auto px-4 py-10">
